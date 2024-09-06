@@ -1,14 +1,7 @@
-from typing import Optional
+from nicegui import ui
 
-from fastapi import FastAPI
+t1=ui.input(label='enter value')
+b1=ui.button('BUTTON', on_click=lambda: lab.set_text( t1.value ) )
+lab=ui.label('Hello NiceGUI!')
 
-app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+ui.run()
